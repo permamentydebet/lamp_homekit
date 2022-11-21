@@ -5,8 +5,8 @@ OBJECT_DIR = ${PROJECT_DIR}/build
 SHELL := /bin/bash
 
 SDK_ROOT_DIR ?= ${PROJECT_DIR}
-SDK_DIR = ${SDK_ROOT_DIR}/ESP8266_RTOS_SDK
-SDK_EXPORT_ENVS = ${SDK_DIR}/export.sh
+SDK_PATH = ${SDK_ROOT_DIR}/ESP8266_RTOS_SDK
+SDK_EXPORT_ENVS = ${IDF_PATH}/export.sh
 
 SUDO ?= sudo
 
@@ -19,7 +19,7 @@ sdk-download:
 	git clone https://github.com/espressif/ESP8266_RTOS_SDK.git
 
 sdk-install:
-	${SDK_DIR}/install.sh
+	${SDK_PATH}/install.sh
 
 get-sdk:
 	source ${SDK_EXPORT_ENVS}
