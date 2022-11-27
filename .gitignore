@@ -1,2 +1,5 @@
 ESP8266_RTOS_SDK/
-hello_world/build/
+fan/build/
+esp-homekit-sdk/
+fan/sdkconfig
+fan/sdkconfig.old

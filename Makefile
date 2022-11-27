@@ -15,16 +15,18 @@ sdk-install-prerequisites:
 	&& ${SUDO} apt-get install -y gcc git wget make libncurses-dev flex bison gperf python3 python3-pip python-is-python3 \
 	&& pip3 install pyserial
 
-sdk-download:
-	git clone https://github.com/espressif/ESP8266_RTOS_SDK.git
+sdk-download-esp8266:
+	git clone https://github.com/espressif/ESP8266_RTOS_SDK.git \
+	&& cd ESP8266_RTOS_SDK && git submodule update --init --recursive
+
+sdk-download-esp-homekit:
+	git clone https://github.com/espressif/esp-homekit-sdk.git \
+	&& cd esp-homekit-sdk && git submodule update --init --recursive
 
 sdk-install:
 	${SDK_PATH}/install.sh
 
-get-sdk:
-	source ${SDK_EXPORT_ENVS}
-
 setup-sdk:
 	make sdk-install-prerequisites \
-	sdk-download \
+	sdk-download-esp8266 sdk-download-esp-homekit \
 	sdk-install
